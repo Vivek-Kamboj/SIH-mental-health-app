@@ -56,11 +56,11 @@ const LandingPage = (props) => {
       <h1>Contact Us</h1>
       <ContactUs />
 
-      {/* <OnGoingCampaigns
+      <OnGoingCampaigns
         handleClick={handleClick}
         data={data}
         loading={loading}
-      /> */}
+      />
     </React.Fragment>
   );
 };

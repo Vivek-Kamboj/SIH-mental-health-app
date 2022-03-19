@@ -15,8 +15,7 @@ const Navbar = (props) => {
       >
         <li className={styles.title}>
           <Link className={styles.brand} to="/">
-            {/* <img src="/navImage.png" alt="title" /> */}
-            Yaha Nav image aani
+            <img src="/navImage.png" alt="title" />
           </Link>
         </li>
 
