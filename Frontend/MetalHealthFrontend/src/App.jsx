@@ -12,11 +12,16 @@ import PageNotFound from "./Routes/PageNotFound";
 import NewCampaign from "./Routes/newCampaign";
 import AllCampaigns from "./Routes/allCampaigns";
 import EditCampaign from "./Routes/editCampaign";
-import DonationSuccess from "./Routes/donationSuccess";
-import DonationFailure from "./Routes/donationFailure";
 import Footer from "./Components/footer";
 import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
+import ChatBot from "./Routes/chatbotPage";
+import AllBlogs from "./Routes/allBlogsPage";
+import VideoConferencing from "./Routes/videoConferencingPage";
+import ThoughtOfDay from "./Routes/thoughtPage";
+import AllGames from "./Routes/allGamesPage";
+import Music from "./Routes/musicPage";
+import ExerciseWithUs from "./Routes/exercisePage";
 
 const App = () => {
   return (
@@ -25,13 +30,19 @@ const App = () => {
         <div id="content-wrap">
           <ToastContainer />
           <Switch>
-            <Route path="/all-campaigns" exact component={AllCampaigns} />
+            <Route path="/chatbot" exact component={ChatBot} />
+            <Route path="/all-blogs" exact component={AllBlogs} />
             <Route
-              path="/donation/success/:id"
+              path="/video-conferencing"
               exact
-              component={DonationSuccess}
+              component={VideoConferencing}
             />
-            <Route path="/donation/failure" exact component={DonationFailure} />
+            <Route path="/thought-of-the-day" exact component={ThoughtOfDay} />
+            <Route path="/all-games" exact component={AllGames} />
+            <Route path="/music" exact component={Music} />
+            <Route path="/exercise-with-us" exact component={ExerciseWithUs} />
+            <Route path="/all-campaigns" exact component={AllCampaigns} />
+
             <Route path="/campaign/:id" exact component={Campaign} />
             <Route path="/admin/login" exact component={LoginAdmin} />
             <Route path="/admin/dashboard" exact component={AdminDashboard} />

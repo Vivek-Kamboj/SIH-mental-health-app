@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import NavBar from "../Components/navbar_notLanding";
-import ProgressBar from "../Components/progressBar";
-import Donated from "../Components/donors";
-import FloatBtn from "../Components/campaignFloatingBtns";
 import Loader from "../Components/loaderFullPage";
 import ScrollToTop from "../Components/scrollToTop";
-import { isNormalInteger } from "../utills/math";
 import { getCampaignData, deleteCampaign } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
 import styles from "../Components/styles/campaign.module.css";
@@ -14,12 +10,6 @@ import styles from "../Components/styles/campaign.module.css";
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
   const [loading, setLoading] = useState(true);
-  const [amount, setAmount] = useState("");
-
-  const handleAmountChange = (p) => {
-    if (p.target.value === "" || isNormalInteger(p.target.value))
-      setAmount(p.target.value);
-  };
 
   useEffect(() => {
     async function getData() {
@@ -54,7 +44,6 @@ const Campaign = (props) => {
       <NavBar />
       <ScrollToTop />
       {loading && <Loader />}
-      <FloatBtn campaign={campaign} />
       <div className={`col-md-10 col-11 m-auto py-2 ${styles.container}`}>
         {/* {isAuthorised() && (
           <div className="bg-light border p-2">
@@ -125,22 +114,12 @@ const Campaign = (props) => {
                 ></div>
               )}
             </div>
-            <ProgressBar
-              fundRequired={campaign.required}
-              fundRaised={campaign.raised}
-              id={props.match.params.id}
-              amount={amount}
-              onAmountChange={handleAmountChange}
-              isActivated={campaign.isActivated}
-            />
           </div>
         </div>
 
         <p className={styles.description}>{campaign.description}</p>
 
         <hr />
-
-        <Donated data={campaign.donors} num={campaign.donorsNum} />
       </div>
     </React.Fragment>
   );
