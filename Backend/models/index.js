@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-const dbUrl = process.env.MONGODB_URI;
+// const dbUrl = process.env.MONGODB_URI;
+const dbUrl = "mongodb://localhost:27017/crowdFundingDB";
 
 mongoose
   .connect(dbUrl, {
